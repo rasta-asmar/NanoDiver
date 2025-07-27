@@ -1,16 +1,15 @@
-<manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.rastanasmar.nanodiver">
+package com.rastasmar.nanodiver
 
-    <application
-        android:label="NanoDiver"
-        android:icon="@mipmap/ic_launcher"
-        android:theme="@style/Theme.MaterialComponents.DayNight.DarkActionBar">
-        <activity android:name=".MainActivity">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN"/>
-                <category android:name="android.intent.category.LAUNCHER"/>
-            </intent-filter>
-        </activity>
-    </application>
+import android.os.Bundle
+import androidx.appcompat.app.AppCompatActivity
+import android.widget.TextView
 
-</manifest>
+class MainActivity : AppCompatActivity() {
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        setContentView(R.layout.activity_main)
+
+        val welcomeText = findViewById<TextView>(R.id.welcomeText)
+        welcomeText.text = "Welcome to NanoDiver 🧠"
+    }
+}
