@@ -8,5 +8,6 @@
 
 # Set DIR to the directory containing this script
 DIR="$(cd "$(dirname "$0")" && pwd)"
-# Execute the actual Gradle wrapper
-exec "$DIR/gradle/wrapper/gradle-wrapper" "$@"
+
+# Launch Gradle wrapper using Java
+exec java -classpath "$DIR/gradle/wrapper/gradle-wrapper.jar" org.gradle.wrapper.GradleWrapperMain "$@"
