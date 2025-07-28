@@ -67,6 +67,12 @@ class MainActivity : AppCompatActivity() {
              btnFileExplorer.setOnClickListener {
              val intent = Intent(this, FileExplorerActivity::class.java)
              startActivity(intent)
+             val btnLogMonitor = findViewById<Button>(R.id.btnLogMonitor)
+             btnLogMonitor.setOnClickListener {
+             val intent = Intent(this, LogMonitorActivity::class.java)
+             startActivity(intent)
+}
+
 }
 
         } 
