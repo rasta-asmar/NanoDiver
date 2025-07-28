@@ -20,6 +20,8 @@
          <activity android:name=".LogMonitorActivity" />
          <activity android:name=".FileExplorerActivity"/>
          <activity android:name=".ConnectionMonitorActivity" />
+         <activity android:name=".StorageAnalyzerActivity" />
+
 
 
 
