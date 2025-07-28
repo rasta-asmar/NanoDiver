@@ -55,4 +55,9 @@ class MainActivity : AppCompatActivity() {
          btnLogs.setOnClickListener {
              val intent = Intent(this, LogsActivity::class.java)
              startActivity(intent)
-         }
+             val btnProcesses = findViewById<Button>(R.id.btnProcesses)
+             btnProcesses.setOnClickListener {
+             val intent = Intent(this, ProcessesActivity::class.java)
+             startActivity(intent)
+        }    
+    }   
