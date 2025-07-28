@@ -18,6 +18,8 @@
          <activity android:name=".NetworkActivity" />
          <activity android:name=".FileExplorerActivity" />
          <activity android:name=".LogMonitorActivity" />
+         <activity android:name=".FileExplorerActivity"/>
+
 
     <uses-permission android:name="android.permission.READ_LOGS"/>
 
