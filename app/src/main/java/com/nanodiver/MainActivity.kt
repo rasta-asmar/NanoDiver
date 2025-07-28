@@ -59,5 +59,10 @@ class MainActivity : AppCompatActivity() {
              btnProcesses.setOnClickListener {
              val intent = Intent(this, ProcessesActivity::class.java)
              startActivity(intent)
-        }    
-    }   
+             val btnNetwork = findViewById<Button>(R.id.btnNetwork)
+             btnNetwork.setOnClickListener {
+             val intent = Intent(this, NetworkActivity::class.java)
+             startActivity(intent)
+        } 
+    }  
+}   
