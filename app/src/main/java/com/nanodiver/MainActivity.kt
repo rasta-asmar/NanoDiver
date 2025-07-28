@@ -185,3 +185,12 @@ class MainActivity : AppCompatActivity() {
 }
         layout.addView(btnStorage)
 
+        val btnLogs = Button(this).apply {
+        text = "System Logs"
+        setOnClickListener {
+        startActivity(Intent(this@MainActivity, LogViewerActivity::class.java))
+    }
+}
+        layout.addView(btnLogs)
+
+
