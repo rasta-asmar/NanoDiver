@@ -51,3 +51,8 @@ class MainActivity : AppCompatActivity() {
         }
     }
 }
+
+         btnLogs.setOnClickListener {
+             val intent = Intent(this, LogsActivity::class.java)
+             startActivity(intent)
+         }
