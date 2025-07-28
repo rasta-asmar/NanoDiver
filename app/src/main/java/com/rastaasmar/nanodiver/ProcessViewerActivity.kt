@@ -1,55 +1,42 @@
-package com.rastaasmar.nanodiver
+package com.example.nanodiver
 
 import android.os.Bundle
-import android.widget.Toast
+import android.widget.ArrayAdapter
+import android.widget.ListView
 import androidx.appcompat.app.AppCompatActivity
-import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.RecyclerView
-import java.io.BufferedReader
-import java.io.InputStreamReader
+import java.io.File
 
 class ProcessViewerActivity : AppCompatActivity() {
-
-    private lateinit var recyclerView: RecyclerView
-    private lateinit var adapter: ProcessAdapter
-    private val processList = mutableListOf<ProcessInfo>()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_process_viewer)
 
-        recyclerView = findViewById(R.id.processRecyclerView)
-        recyclerView.layoutManager = LinearLayoutManager(this)
-        adapter = ProcessAdapter(processList)
-        recyclerView.adapter = adapter
+        val listView = findViewById<ListView>(R.id.processListView)
+        val processList = getRunningProcesses()
 
-        fetchProcesses()
+        val adapter = ArrayAdapter(this, android.R.layout.simple_list_item_1, processList)
+        listView.adapter = adapter
     }
 
-    private fun fetchProcesses() {
-        try {
-            val process = Runtime.getRuntime().exec("ps")
-            val reader = BufferedReader(InputStreamReader(process.inputStream))
-            var line: String?
+    private fun getRunningProcesses(): List<String> {
+        val processList = mutableListOf<String>()
+        val procDir = File("/proc")
 
-            // Skip header line
-            reader.readLine()
-
-            while (reader.readLine().also { line = it } != null) {
-                line?.let {
-                    val tokens = it.trim().split("\\s+".toRegex())
-                    if (tokens.size >= 9) {
-                        val pid = tokens[1]
-                        val user = tokens[0]
-                        val name = tokens.last()
-                        processList.add(ProcessInfo(pid, user, name))
+        if (procDir.exists() && procDir.isDirectory) {
+            procDir.listFiles()?.forEach { file ->
+                if (file.isDirectory && file.name.all { it.isDigit() }) {
+                    val cmdlineFile = File(file, "cmdline")
+                    val processName = try {
+                        cmdlineFile.readText().trim().ifEmpty { "[kernel]" }
+                    } catch (e: Exception) {
+                        "[unknown]"
                     }
+                    processList.add("${file.name}: $processName")
                 }
             }
-
-            adapter.notifyDataSetChanged()
-        } catch (e: Exception) {
-            Toast.makeText(this, "Error reading processes: ${e.message}", Toast.LENGTH_LONG).show()
         }
+
+        return processList.sorted()
     }
 }
