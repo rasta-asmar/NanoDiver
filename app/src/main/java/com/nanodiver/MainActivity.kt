@@ -193,4 +193,13 @@ class MainActivity : AppCompatActivity() {
 }
         layout.addView(btnLogs)
 
+        val btnConnections = Button(this).apply {
+        text = "Network Connections"
+        setOnClickListener {
+        startActivity(Intent(this@MainActivity, ConnectionTrackerActivity::class.java))
+    }
+}
+        layout.addView(btnConnections)
+
+
 
