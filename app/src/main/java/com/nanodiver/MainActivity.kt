@@ -201,5 +201,14 @@ class MainActivity : AppCompatActivity() {
 }
         layout.addView(btnConnections)
 
+        val btnFiles = Button(this).apply {
+        text = "📁 File Explorer"
+        setOnClickListener {
+        startActivity(Intent(this@MainActivity, FileExplorerActivity::class.java))
+    }
+}
+        layout.addView(btnFiles)
+
+
 
 
