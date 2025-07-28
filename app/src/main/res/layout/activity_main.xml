@@ -44,6 +44,15 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"/>
+        <Button
+            android:id="@+id/btnProcesses"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Processes Monitor"
+            android:background="#222222"
+            android:textColor="#00FF00"
+            android:layout_marginTop="8dp"/
+
     </LinearLayout>
 </ScrollView>
 
