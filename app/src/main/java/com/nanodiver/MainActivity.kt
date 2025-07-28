@@ -103,3 +103,63 @@ class MainActivity : AppCompatActivity() {
         }
     }
 }
+package com.example.nanodiver
+
+import android.Manifest
+import android.content.pm.PackageManager
+import android.os.Build
+import android.os.Bundle
+import android.widget.Button
+import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
+import androidx.core.app.ActivityCompat
+import androidx.core.content.ContextCompat
+import android.content.Intent
+
+class MainActivity : AppCompatActivity() {
+
+    private val STORAGE_PERMISSION_CODE = 101
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        setContentView(R.layout.activity_main)
+
+        checkStoragePermission()
+
+        val processBtn = findViewById<Button>(R.id.processViewerBtn)
+        processBtn.setOnClickListener {
+            val intent = Intent(this, ProcessViewerActivity::class.java)
+            startActivity(intent)
+        }
+    }
+
+    private fun checkStoragePermission() {
+        if (ContextCompat.checkSelfPermission(this, Manifest.permission.READ_EXTERNAL_STORAGE)
+            != PackageManager.PERMISSION_GRANTED
+        ) {
+            ActivityCompat.requestPermissions(
+                this,
+                arrayOf(Manifest.permission.READ_EXTERNAL_STORAGE),
+                STORAGE_PERMISSION_CODE
+            )
+        } else {
+            Toast.makeText(this, "Storage permission granted", Toast.LENGTH_SHORT).show()
+        }
+    }
+
+    override fun onRequestPermissionsResult(
+        requestCode: Int,
+        permissions: Array<String>,
+        grantResults: IntArray
+    ) {
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults)
+
+        if (requestCode == STORAGE_PERMISSION_CODE) {
+            if ((grantResults.isNotEmpty() && grantResults[0] == PackageManager.PERMISSION_GRANTED)) {
+                Toast.makeText(this, "Permission granted", Toast.LENGTH_SHORT).show()
+            } else {
+                Toast.makeText(this, "Permission denied", Toast.LENGTH_SHORT).show()
+            }
+        }
+    }
+}
