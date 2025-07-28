@@ -168,3 +168,11 @@ class MainActivity : AppCompatActivity() {
         val intent = Intent(this, FileExplorerActivity::class.java)
         startActivity(intent)
      }
+
+        val btnConnections = Button(this).apply {
+        text = "Connection Monitor"
+        setOnClickListener {
+        startActivity(Intent(this@MainActivity, ConnectionMonitorActivity::class.java))
+    }
+}
+        layout.addView(btnConnections)
