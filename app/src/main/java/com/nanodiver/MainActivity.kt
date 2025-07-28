@@ -210,5 +210,12 @@ class MainActivity : AppCompatActivity() {
         layout.addView(btnFiles)
 
 
+        ActivityCompat.requestPermissions(this, arrayOf(
+        Manifest.permission.READ_EXTERNAL_STORAGE
+        ), 1)
+
+        import android.Manifest
+        import androidx.core.app.ActivityCompat
+
 
 
