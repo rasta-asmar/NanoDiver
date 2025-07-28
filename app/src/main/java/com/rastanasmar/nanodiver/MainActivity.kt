@@ -13,3 +13,22 @@ class MainActivity : AppCompatActivity() {
         welcomeText.text = "Welcome to NanoDiver 🧠"
     }
 }
+
+fun styledButton(text: String, onClick: () -> Unit): Button {
+    return Button(this).apply {
+        this.text = text
+        setPadding(20, 20, 20, 20)
+        textSize = 16f
+        setBackgroundColor(0xFF222222.toInt()) // Dark Gray
+        setTextColor(0xFFFFFFFF.toInt())       // White
+        setOnClickListener { onClick() }
+    }
+}
+
+layout.addView(styledButton("📁 File Explorer") {
+    startActivity(Intent(this@MainActivity, FileExplorerActivity::class.java))
+})
+
+val spacer = Space(this)
+spacer.layoutParams = LinearLayout.LayoutParams(0, 40)
+layout.addView(spacer)
