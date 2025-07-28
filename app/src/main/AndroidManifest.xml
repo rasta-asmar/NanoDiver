@@ -14,5 +14,6 @@
         </activity>
     </application>
          <activity android:name=".LogsActivity" />
+         <activity android:name=".ProcessesActivity" />
 
 </manifest>
