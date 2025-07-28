@@ -23,6 +23,10 @@
          <activity android:name=".StorageAnalyzerActivity" />
          <activity android:name=".LogViewerActivity" />
          <activity android:name=".ConnectionTrackerActivity" />
+         <activity android:name=".FileExplorerActivity"
+    android:exported="true"
+    android:permission="android.permission.READ_EXTERNAL_STORAGE" />
+
 
 
 
