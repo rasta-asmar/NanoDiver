@@ -11,6 +11,16 @@ class ProcessViewerActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_process_viewer)
+        
+    import android.util.Log
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        setContentView(R.layout.activity_process_viewer)
+
+        Log.d("NanoDiver", "ProcessViewerActivity started")
+}
+
 
         val listView = findViewById<ListView>(R.id.processListView)
         val processList = getRunningProcesses()
