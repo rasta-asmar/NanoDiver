@@ -176,3 +176,12 @@ class MainActivity : AppCompatActivity() {
     }
 }
         layout.addView(btnConnections)
+
+        val btnStorage = Button(this).apply {
+        text = "Storage Analyzer"
+        setOnClickListener {
+        startActivity(Intent(this@MainActivity, StorageAnalyzerActivity::class.java))
+    }
+}
+        layout.addView(btnStorage)
+
