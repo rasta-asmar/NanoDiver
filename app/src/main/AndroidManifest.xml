@@ -16,6 +16,8 @@
          <activity android:name=".LogsActivity" />
          <activity android:name=".ProcessesActivity" />
          <activity android:name=".NetworkActivity" />
+         <activity android:name=".FileExplorerActivity" />
+
 
 
 </manifest>
