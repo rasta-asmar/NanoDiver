@@ -27,9 +27,12 @@
 
 
 
-    <uses-permission android:name="android.permission.READ_LOGS"/>
+     <uses-permission android:name="android.permission.READ_LOGS"/>
 
     
+     <application
+    android:debuggable="true"
+    ... >
 
     
 
