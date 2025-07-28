@@ -69,3 +69,37 @@ layout.addView(styledButton("📁 File Explorer") {
 val spacer = Space(this)
 spacer.layoutParams = LinearLayout.LayoutParams(0, 40)
 layout.addView(spacer)
+
+package com.rastaasmar.nanodiver
+
+import android.os.Bundle
+import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
+
+class ProcessViewerActivity : AppCompatActivity() {
+
+    private lateinit var recyclerView: RecyclerView
+    private lateinit var adapter: ProcessAdapter
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        setContentView(R.layout.activity_process_viewer)
+
+        recyclerView = findViewById(R.id.processRecyclerView)
+        recyclerView.layoutManager = LinearLayoutManager(this)
+
+        // We'll show placeholder data for now until Step 14
+        val dummyProcesses = listOf(
+            ProcessInfo(1234, "com.example.app", "2048KB"),
+            ProcessInfo(5678, "com.android.system", "4096KB")
+        )
+
+        adapter = ProcessAdapter(dummyProcesses)
+        recyclerView.adapter = adapter
+
+        Toast.makeText(this, "Process Viewer Loaded", Toast.LENGTH_SHORT).show()
+    }
+}
+
