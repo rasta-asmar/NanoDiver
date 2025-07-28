@@ -21,12 +21,15 @@
          <activity android:name=".FileExplorerActivity"/>
          <activity android:name=".ConnectionMonitorActivity" />
          <activity android:name=".StorageAnalyzerActivity" />
+         <activity android:name=".LogViewerActivity" />
+
 
 
 
 
     <uses-permission android:name="android.permission.READ_LOGS"/>
 
+    
 
     
 
