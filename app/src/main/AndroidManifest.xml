@@ -22,6 +22,7 @@
          <activity android:name=".ConnectionMonitorActivity" />
          <activity android:name=".StorageAnalyzerActivity" />
          <activity android:name=".LogViewerActivity" />
+         <activity android:name=".ConnectionTrackerActivity" />
 
 
 
