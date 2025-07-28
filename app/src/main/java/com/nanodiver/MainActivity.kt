@@ -71,6 +71,11 @@ class MainActivity : AppCompatActivity() {
              btnLogMonitor.setOnClickListener {
              val intent = Intent(this, LogMonitorActivity::class.java)
              startActivity(intent)
+             
+        }
+    }
+}
+
 }
 
 }
@@ -78,3 +83,23 @@ class MainActivity : AppCompatActivity() {
         } 
     }  
 }   
+
+package com.example.nanodiver
+
+import android.content.Intent
+import android.os.Bundle
+import android.widget.Button
+import androidx.appcompat.app.AppCompatActivity
+
+class MainActivity : AppCompatActivity() {
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        setContentView(R.layout.activity_main)
+
+        val openProcessViewerButton = findViewById<Button>(R.id.openProcessViewerButton)
+        openProcessViewerButton.setOnClickListener {
+            val intent = Intent(this, ProcessViewerActivity::class.java)
+            startActivity(intent)
+        }
+    }
+}
