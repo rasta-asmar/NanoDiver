@@ -63,6 +63,12 @@ class MainActivity : AppCompatActivity() {
              btnNetwork.setOnClickListener {
              val intent = Intent(this, NetworkActivity::class.java)
              startActivity(intent)
+             val btnFileExplorer = findViewById<Button>(R.id.btnFileExplorer)
+             btnFileExplorer.setOnClickListener {
+             val intent = Intent(this, FileExplorerActivity::class.java)
+             startActivity(intent)
+}
+
         } 
     }  
 }   
