@@ -163,3 +163,8 @@ class MainActivity : AppCompatActivity() {
         }
     }
 }
+        val openFileExplorerButton = findViewById<Button>(R.id.openFileExplorerButton)
+        openFileExplorerButton.setOnClickListener {
+        val intent = Intent(this, FileExplorerActivity::class.java)
+        startActivity(intent)
+     }
